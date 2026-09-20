@@ -1,7 +1,7 @@
 ---
 artifact: b2-module-blueprint
 status: accepted
-updated: 2026-08-15
+updated: 2026-09-20
 language: ru
 ---
 
@@ -9,11 +9,15 @@ language: ru
 
 Modules — 10 стабильных единиц навигации и выпуска, не синонимы clusters. Общие metadata/defaults определены в `README.md` blueprint.
 
+<a id="http-service-runtime"></a>
+
 ## `b2.module.http-service-runtime` — HTTP service runtime
 
 - Scope: путь запроса через ASGI application, middleware/dependencies, request context, lifespan и resource scopes.
 - Develops: `b2.capability.trace-request-execution`, `b2.capability.manage-service-resource-lifecycle`, `b2.capability.control-concurrency-cancellation`.
 - Non-goals: устройство Python runtime (B1), сеть ниже прикладного HTTP baseline (A3), общая observability discipline (B7).
+
+<a id="evolvable-api-contracts"></a>
 
 ## `b2.module.evolvable-api-contracts` — Evolvable API contracts
 
@@ -21,11 +25,15 @@ Modules — 10 стабильных единиц навигации и выпу�
 - Develops: `b2.capability.design-http-api-contracts`, `b2.capability.evolve-api-contracts`, `b2.capability.design-validation-error-contracts`, `b2.capability.design-idempotent-service-operations`, `b2.capability.verify-contract-compatibility`.
 - Non-goals: полный справочник HTTP/FastAPI/Pydantic, distributed consistency theory (B5), delivery platform (B6).
 
+<a id="identity-aware-boundaries"></a>
+
 ## `b2.module.identity-aware-boundaries` — Identity and API security boundaries
 
 - Scope: интеграция authentication/authorization, subject/resource/tenant context, API abuse controls, untrusted input/target boundaries и безопасные error boundaries.
 - Develops: `b2.capability.integrate-identity-access-control`, `b2.capability.enforce-api-security-abuse-controls`, `b2.capability.design-http-api-contracts`, `b2.capability.design-service-architecture`.
 - Non-goals: криптографические протоколы и IAM infrastructure (A3/B6), организация security program (C1).
+
+<a id="service-architecture"></a>
 
 ## `b2.module.service-architecture` — Service architecture
 
@@ -33,11 +41,15 @@ Modules — 10 стабильных единиц навигации и выпу�
 - Develops: `b2.capability.design-service-architecture`, `b2.capability.integrate-external-services`, `b2.capability.verify-service-behavior`.
 - Non-goals: универсальный каталог design patterns, межсервисная декомпозиция всей системы (B5/C1).
 
+<a id="transactional-persistence-integration"></a>
+
 ## `b2.module.transactional-persistence-integration` — Transactional persistence integration
 
 - Scope: application transaction boundary, unit of work, repository/driver lifecycle, retry boundary и согласование side effects.
 - Develops: `b2.capability.manage-application-transaction-boundaries`, `b2.capability.integrate-application-caching`, `b2.capability.design-idempotent-service-operations`, `b2.capability.verify-service-behavior`.
 - Non-goals: SQL, MVCC, query optimization и store selection как таковые (B3).
+
+<a id="external-service-integration"></a>
 
 ## `b2.module.external-service-integration` — External service integration
 
@@ -45,11 +57,15 @@ Modules — 10 стабильных единиц навигации и выпу�
 - Develops: `b2.capability.integrate-external-services`, `b2.capability.control-concurrency-cancellation`, `b2.capability.control-service-load-resources`.
 - Non-goals: Python async semantics (B1), general resilience discipline (B7), service mesh/platform mechanics (B6).
 
+<a id="background-message-workflows"></a>
+
 ## `b2.module.background-message-workflows` — Background and message workflows
 
 - Scope: background jobs, messaging adapters, acknowledgement/retry/deduplication boundaries, replay/recovery и graceful worker shutdown.
 - Develops: `b2.capability.design-asynchronous-workflows`, `b2.capability.design-idempotent-service-operations`, `b2.capability.control-concurrency-cancellation`.
 - Non-goals: broker internals и общая delivery/consistency theory (B5), orchestration infrastructure (B6).
+
+<a id="service-verification"></a>
 
 ## `b2.module.service-verification` — Service verification
 
@@ -57,11 +73,15 @@ Modules — 10 стабильных единиц навигации и выпу�
 - Develops: `b2.capability.verify-service-behavior`, `b2.capability.verify-contract-compatibility`, `b2.capability.design-service-architecture`.
 - Non-goals: общая test engineering discipline (A2), organization-wide quality governance (C1).
 
+<a id="safe-service-evolution"></a>
+
 ## `b2.module.safe-service-evolution` — Safe service evolution
 
 - Scope: migration sequencing, rollout/deprecation, rollback/roll-forward/compensation и service-specific release evidence.
 - Develops: `b2.capability.deliver-service-changes-safely`, `b2.capability.evolve-api-contracts`, `b2.capability.verify-contract-compatibility`.
 - Non-goals: CI/CD platform implementation (B6), общая production readiness discipline (B7), organization-wide change governance (C1).
+
+<a id="performance-resource-control"></a>
 
 ## `b2.module.performance-resource-control` — Performance and resource control
 

@@ -4,11 +4,41 @@ kind: index
 title: B2 Backend & API Engineering — pilot blueprint
 owner_track: b2
 status: accepted
-updated: 2026-09-08
+updated: 2026-09-20
 language: ru
 ---
 
 # B2 Backend & API Engineering — blueprint
+
+**B2** — это код второй технической вертикали группы B: **Backend & API
+Engineering**. Трек посвящён созданию и изменению backend-сервисов: от пути
+HTTP-запроса и API-контракта до транзакций, интеграций, фоновой обработки,
+проверок, производительности и безопасного выпуска изменений. Место B2 среди
+остальных вертикалей показано в [общей карте треков](../../program/track-map.md).
+
+## Содержание: 10 модулей B2
+
+Модуль — навигационный дом для связанного инженерного результата. Ссылка в
+названии ведёт к его scope, capabilities и non-goals; последний столбец — прямо
+к уже опубликованным учебным срезам.
+
+| Модуль | Что осваивается | Учебные срезы |
+|---|---|---|
+| [HTTP runtime сервиса](modules.md#http-service-runtime) | Прослеживать путь запроса, контекст, middleware, lifecycle ресурсов и cancellation | [Диагностика потери request context](slices/request-context-loss-diagnosis/README.md); [runtime, concurrency и lifecycle](slices/runtime-concurrency-lifecycle/README.md) |
+| [Эволюция API-контрактов](modules.md#evolvable-api-contracts) | Проектировать HTTP/error contracts и менять их без поломки потребителей | [Совместимое изменение Orders API](slices/evolvable-api-contracts/README.md) |
+| [Identity и безопасность API](modules.md#identity-aware-boundaries) | Проводить trusted identity context, проверять object-level access и ограничивать дорогой ввод | [Tenant-scoped authorization](slices/tenant-scoped-orders-authorization/README.md); [ограничение стоимости export](slices/cost-bounded-orders-export/README.md) |
+| [Архитектура сервиса](modules.md#service-architecture) | Выделять application/domain/adapter boundaries и ограничивать поверхность изменения | [Границы сервиса](slices/service-architecture-boundaries/README.md) |
+| [Транзакции и persistence](modules.md#transactional-persistence-integration) | Задавать application transaction, идемпотентность, recovery и границы cache integration | [Транзакционная Orders operation](slices/transactional-orders-operation/README.md); [tenant-scoped cache](slices/tenant-scoped-orders-cache/README.md) |
+| [Интеграция внешних сервисов](modules.md#external-service-integration) | Отличать предметное отсутствие результата от невалидного ответа и отказа dependency | [Граница клиента Pricing](slices/truthful-pricing-client-boundary/README.md) |
+| [Фоновые и message-driven workflows](modules.md#background-message-workflows) | Связывать acknowledgement, durable result, redelivery, deduplication и poison outcome | [Восстанавливаемый consumer](slices/recoverable-order-confirmed-consumer/README.md) |
+| [Проверка сервиса](modules.md#service-verification) | Выбирать минимальный risk-based набор проверок на правильной границе | [Правдивые test boundaries](slices/risk-based-service-verification/README.md) |
+| [Безопасная эволюция сервиса](modules.md#safe-service-evolution) | Планировать staged rollout, останавливать продвижение и выбирать recovery | [Безопасный rollout Orders](slices/safe-orders-service-rollout/README.md) |
+| [Производительность и ресурсы](modules.md#performance-resource-control) | Измерять latency/throughput, ограничивать concurrency, pools, overload и backpressure | [Runtime и resource lifecycle](slices/runtime-concurrency-lifecycle/README.md); [cache stampede](slices/tenant-scoped-orders-cache/README.md) |
+
+Для последовательного просмотра всех готовых материалов откройте
+[каталог учебных срезов B2](slices/). Полный перечень capabilities и критериев
+уровней находится в [capabilities](capabilities.md) и
+[LevelOutcomes](level-outcomes.md).
 
 ## Назначение
 
