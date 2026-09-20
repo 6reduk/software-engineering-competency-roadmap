@@ -1,0 +1,63 @@
+Engineering Leadership & Architecture — Licensing
+
+Copyright (c) 2026 Shestakov Dmitriy <6reduk@gmail.com>
+
+This repository uses two licenses, selected by file purpose.
+
+1. Content and documentation
+
+Unless a file explicitly states otherwise, curriculum materials, governance
+artifacts, authoring instructions, diagrams, metadata, evidence records and
+other non-software content are licensed under the Creative Commons Attribution
+4.0 International License (CC BY 4.0).
+
+Canonical license URI:
+https://creativecommons.org/licenses/by/4.0/
+
+Legal code:
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+When sharing or adapting this material, provide appropriate attribution,
+include a link to the license and indicate whether changes were made. A
+reasonable attribution is:
+
+  Engineering Leadership & Architecture
+  Copyright (c) 2026 Shestakov Dmitriy <6reduk@gmail.com>
+  Licensed under CC BY 4.0
+
+Source-code fragments embedded in a document are part of that document and use
+CC BY 4.0 unless they carry an explicit software-license notice.
+
+2. Software
+
+Files under tools/ and standalone executable source-code files, including the
+preserved Gate 0 probe under governance/work-packages/evidence/, are licensed
+under the MIT License below unless a file explicitly states otherwise.
+
+The MIT License
+
+Copyright (c) 2026 Shestakov Dmitriy <6reduk@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+3. Exceptions and third-party material
+
+An explicit license notice in a file overrides this repository-level routing
+for that file. Third-party material, if present and identified, remains under
+its own license. No trademark rights, endorsement or warranty are granted.

@@ -1,0 +1,3838 @@
+[
+  {
+    "session": "ddl",
+    "sql": "SET application_name='se01-ddl'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.164593
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE ROLE se01_old LOGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002178
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE ROLE se01_new LOGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001696
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE ROLE se01_backfill LOGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001461
+  },
+  {
+    "session": "old",
+    "sql": "SET application_name='se01-old'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.149695
+  },
+  {
+    "session": "new",
+    "sql": "SET application_name='se01-new'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.160245
+  },
+  {
+    "session": "backfill",
+    "sql": "SET application_name='se01-backfill'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.1842
+  },
+  {
+    "session": "observer",
+    "sql": "SET application_name='se01-observer'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.146632
+  },
+  {
+    "session": "lockwriter",
+    "sql": "SET application_name='se01-lockwriter'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.165086
+  },
+  {
+    "session": "ddl",
+    "sql": "SELECT version();",
+    "output": [
+      "PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.003679
+  },
+  {
+    "event": "environment",
+    "server": [
+      "PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit"
+    ],
+    "client": "psql (PostgreSQL) 18.6 (Debian 18.6-1.pgdg13+2)",
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]"
+  },
+  {
+    "session": "ddl",
+    "sql": "SELECT current_user,pg_backend_pid(),current_setting('transaction_isolation'),current_setting('statement_timeout'),current_setting('lock_timeout');",
+    "output": [
+      "postgres|168|read committed|2s|1500ms"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002532
+  },
+  {
+    "event": "session",
+    "name": "ddl",
+    "settings": [
+      "postgres|168|read committed|2s|1500ms"
+    ],
+    "autocommit": true
+  },
+  {
+    "session": "old",
+    "sql": "SELECT current_user,pg_backend_pid(),current_setting('transaction_isolation'),current_setting('statement_timeout'),current_setting('lock_timeout');",
+    "output": [
+      "se01_old|175|read committed|2s|1500ms"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.003276
+  },
+  {
+    "event": "session",
+    "name": "old",
+    "settings": [
+      "se01_old|175|read committed|2s|1500ms"
+    ],
+    "autocommit": true
+  },
+  {
+    "session": "new",
+    "sql": "SELECT current_user,pg_backend_pid(),current_setting('transaction_isolation'),current_setting('statement_timeout'),current_setting('lock_timeout');",
+    "output": [
+      "se01_new|182|read committed|2s|1500ms"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002566
+  },
+  {
+    "event": "session",
+    "name": "new",
+    "settings": [
+      "se01_new|182|read committed|2s|1500ms"
+    ],
+    "autocommit": true
+  },
+  {
+    "session": "backfill",
+    "sql": "SELECT current_user,pg_backend_pid(),current_setting('transaction_isolation'),current_setting('statement_timeout'),current_setting('lock_timeout');",
+    "output": [
+      "se01_backfill|189|read committed|2s|1500ms"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002518
+  },
+  {
+    "event": "session",
+    "name": "backfill",
+    "settings": [
+      "se01_backfill|189|read committed|2s|1500ms"
+    ],
+    "autocommit": true
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT current_user,pg_backend_pid(),current_setting('transaction_isolation'),current_setting('statement_timeout'),current_setting('lock_timeout');",
+    "output": [
+      "postgres|196|read committed|2s|1500ms"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002224
+  },
+  {
+    "event": "session",
+    "name": "observer",
+    "settings": [
+      "postgres|196|read committed|2s|1500ms"
+    ],
+    "autocommit": true
+  },
+  {
+    "session": "lockwriter",
+    "sql": "SELECT current_user,pg_backend_pid(),current_setting('transaction_isolation'),current_setting('statement_timeout'),current_setting('lock_timeout');",
+    "output": [
+      "postgres|203|read committed|2s|1500ms"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002594
+  },
+  {
+    "event": "session",
+    "name": "lockwriter",
+    "settings": [
+      "postgres|203|read committed|2s|1500ms"
+    ],
+    "autocommit": true
+  },
+  {
+    "event": "declared",
+    "defect": "23514",
+    "isolation": "read committed",
+    "operation_limit_seconds": 2,
+    "profile_limit_seconds": 60,
+    "lock_timeout_seconds": 1.5,
+    "oracle": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        12000
+      ],
+      [
+        3,
+        1300
+      ],
+      [
+        4,
+        999999999999
+      ],
+      [
+        5,
+        789
+      ],
+      [
+        6,
+        2501
+      ]
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "DROP TABLE IF EXISTS orders;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.003151
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE TABLE orders(order_id integer PRIMARY KEY,amount_rub numeric(12,2) NOT NULL CHECK(amount_rub BETWEEN 0 AND 9999999999.99));",
+    "output": [
+      "NOTICE:  table \"orders\" does not exist, skipping"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.015472
+  },
+  {
+    "session": "ddl",
+    "sql": "GRANT SELECT,INSERT,UPDATE ON orders TO se01_new,se01_backfill;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002898
+  },
+  {
+    "session": "ddl",
+    "sql": "GRANT SELECT(order_id,amount_rub),INSERT(order_id,amount_rub),UPDATE(amount_rub) ON orders TO se01_old;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001878
+  },
+  {
+    "session": "ddl",
+    "sql": "INSERT INTO orders VALUES(1,0),(2,100),(3,12.34),(4,9999999999.99);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.003222
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.004285
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001533
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001727
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002951
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001739
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00208
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_minor FROM orders;",
+    "output": [
+      "ERROR:  column \"amount_minor\" does not exist",
+      "LINE 1: SELECT amount_minor FROM orders;",
+      "               ^"
+    ],
+    "sqlstate": "42703",
+    "seconds": 0.012964
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [
+      "ERROR:  column \"amount_minor\" of relation \"orders\" does not exist",
+      "LINE 1: INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(...",
+      "                                               ^"
+    ],
+    "sqlstate": "42703",
+    "seconds": 0.001898
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 0
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001477
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders ADD COLUMN amount_minor bigint;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002679
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "AccessExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.008913
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders ADD COLUMN amount_minor bigint;",
+    "modes": [
+      "AccessExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001591
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001769
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001413
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001761
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001974
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001738
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001927
+  },
+  {
+    "event": "new_paths_disabled",
+    "stage": 1
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 1
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE OR REPLACE FUNCTION se01_compat() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF current_user='se01_old' THEN NEW.amount_minor:=(NEW.amount_rub*100)::bigint; END IF; RETURN NEW; END $$;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.006886
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE TRIGGER compat BEFORE INSERT OR UPDATE OF amount_rub ON orders FOR EACH ROW EXECUTE FUNCTION se01_compat();",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002784
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001807
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001465
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.004271
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002291
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001778
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001597
+  },
+  {
+    "session": "new",
+    "sql": "SELECT order_id,COALESCE(amount_minor,(amount_rub*100)::bigint),amount_minor IS NULL OR amount_minor=amount_rub*100 FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0|t",
+      "2|10000|t",
+      "3|1234|t",
+      "4|999999999999|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002558
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001627
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00359
+  },
+  {
+    "session": "new",
+    "sql": "UPDATE orders SET amount_rub=2,amount_minor=200 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.003067
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00|200"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002432
+  },
+  {
+    "session": "new",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001765
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 2
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001555
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders ADD CONSTRAINT pair_ok CHECK(amount_minor=amount_rub*100) NOT VALID;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002085
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "AccessExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002327
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders ADD CONSTRAINT pair_ok CHECK(amount_minor=amount_rub*100) NOT VALID;",
+    "modes": [
+      "AccessExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.004179
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002235
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001585
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002478
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002496
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001759
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001493
+  },
+  {
+    "session": "new",
+    "sql": "SELECT order_id,COALESCE(amount_minor,(amount_rub*100)::bigint),amount_minor IS NULL OR amount_minor=amount_rub*100 FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0|t",
+      "2|10000|t",
+      "3|1234|t",
+      "4|999999999999|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001806
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001411
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002066
+  },
+  {
+    "session": "new",
+    "sql": "UPDATE orders SET amount_rub=2,amount_minor=200 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002652
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00|200"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00231
+  },
+  {
+    "session": "new",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001425
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 2
+  },
+  {
+    "session": "backfill",
+    "sql": "SELECT (amount_rub*100)::bigint FROM orders WHERE order_id=2;",
+    "output": [
+      "10000"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002279
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=120 WHERE order_id=2;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002496
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=2;",
+    "output": [
+      "120.00|12000"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002136
+  },
+  {
+    "event": "ack_old",
+    "id": 2,
+    "minor": 12000,
+    "readback": [
+      "120.00|12000"
+    ]
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=10000 WHERE order_id=2;",
+    "output": [
+      "ERROR:  new row for relation \"orders\" violates check constraint \"pair_ok\"",
+      "DETAIL:  Failing row contains (2, 120.00, 10000)."
+    ],
+    "sqlstate": "23514",
+    "seconds": 0.002329
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|",
+      "2|120.00|12000",
+      "3|12.34|",
+      "4|9999999999.99|"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002171
+  },
+  {
+    "event": "signature_confirmed",
+    "saved": 10000,
+    "sqlstate": "23514",
+    "next_stage_started": false
+  },
+  {
+    "event": "profile_begin",
+    "profile": "Control",
+    "repeat": 1
+  },
+  {
+    "session": "ddl",
+    "sql": "DROP TABLE IF EXISTS orders;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.004653
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE TABLE orders(order_id integer PRIMARY KEY,amount_rub numeric(12,2) NOT NULL CHECK(amount_rub BETWEEN 0 AND 9999999999.99));",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002894
+  },
+  {
+    "session": "ddl",
+    "sql": "GRANT SELECT,INSERT,UPDATE ON orders TO se01_new,se01_backfill;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002265
+  },
+  {
+    "session": "ddl",
+    "sql": "GRANT SELECT(order_id,amount_rub),INSERT(order_id,amount_rub),UPDATE(amount_rub) ON orders TO se01_old;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001728
+  },
+  {
+    "session": "ddl",
+    "sql": "INSERT INTO orders VALUES(1,0),(2,100),(3,12.34),(4,9999999999.99);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002473
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002295
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001667
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001646
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001622
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001828
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001588
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_minor FROM orders;",
+    "output": [
+      "ERROR:  column \"amount_minor\" does not exist",
+      "LINE 1: SELECT amount_minor FROM orders;",
+      "               ^"
+    ],
+    "sqlstate": "42703",
+    "seconds": 0.00175
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [
+      "ERROR:  column \"amount_minor\" of relation \"orders\" does not exist",
+      "LINE 1: INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(...",
+      "                                               ^"
+    ],
+    "sqlstate": "42703",
+    "seconds": 0.001453
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 0
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001311
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders ADD COLUMN amount_minor bigint;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001625
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "AccessExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.003416
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders ADD COLUMN amount_minor bigint;",
+    "modes": [
+      "AccessExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001757
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001969
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00157
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001699
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001844
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001612
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001584
+  },
+  {
+    "event": "new_paths_disabled",
+    "stage": 1
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 1
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE OR REPLACE FUNCTION se01_compat() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF current_user='se01_old' THEN NEW.amount_minor:=(NEW.amount_rub*100)::bigint; END IF; RETURN NEW; END $$;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002663
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE TRIGGER compat BEFORE INSERT OR UPDATE OF amount_rub ON orders FOR EACH ROW EXECUTE FUNCTION se01_compat();",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002639
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002302
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002043
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001561
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001384
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001501
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001282
+  },
+  {
+    "session": "new",
+    "sql": "SELECT order_id,COALESCE(amount_minor,(amount_rub*100)::bigint),amount_minor IS NULL OR amount_minor=amount_rub*100 FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0|t",
+      "2|10000|t",
+      "3|1234|t",
+      "4|999999999999|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00252
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001402
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001918
+  },
+  {
+    "session": "new",
+    "sql": "UPDATE orders SET amount_rub=2,amount_minor=200 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002214
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00|200"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001762
+  },
+  {
+    "session": "new",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001732
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 2
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001606
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders ADD CONSTRAINT pair_ok CHECK(amount_minor=amount_rub*100) NOT VALID;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001703
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "AccessExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002502
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders ADD CONSTRAINT pair_ok CHECK(amount_minor=amount_rub*100) NOT VALID;",
+    "modes": [
+      "AccessExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001708
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002408
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001785
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00229
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002117
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001704
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001509
+  },
+  {
+    "session": "new",
+    "sql": "SELECT order_id,COALESCE(amount_minor,(amount_rub*100)::bigint),amount_minor IS NULL OR amount_minor=amount_rub*100 FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0|t",
+      "2|10000|t",
+      "3|1234|t",
+      "4|999999999999|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001779
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001652
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002619
+  },
+  {
+    "session": "new",
+    "sql": "UPDATE orders SET amount_rub=2,amount_minor=200 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001872
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00|200"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001681
+  },
+  {
+    "session": "new",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001319
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 2
+  },
+  {
+    "session": "backfill",
+    "sql": "SELECT order_id FROM orders ORDER BY order_id;",
+    "output": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001809
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (1,2);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001691
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|100.00|10000",
+      "3|12.34|",
+      "4|9999999999.99|"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001595
+  },
+  {
+    "event": "batch_committed",
+    "ids": [
+      1,
+      2
+    ],
+    "rows": [
+      "1|0.00|0",
+      "2|100.00|10000",
+      "3|12.34|",
+      "4|9999999999.99|"
+    ]
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=120 WHERE order_id=2;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001501
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=2;",
+    "output": [
+      "120.00|12000"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001772
+  },
+  {
+    "event": "ack_old",
+    "id": 2,
+    "minor": 12000,
+    "readback": [
+      "120.00|12000"
+    ]
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(5,7.89);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002042
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=5;",
+    "output": [
+      "7.89|789"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002155
+  },
+  {
+    "event": "ack_old",
+    "id": 5,
+    "minor": 789,
+    "readback": [
+      "7.89|789"
+    ]
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001719
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(6,25.01,2501);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001646
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=6;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001457
+  },
+  {
+    "session": "new",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002761
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=6;",
+    "output": [
+      "25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001955
+  },
+  {
+    "event": "ack_new_atomic",
+    "id": 6,
+    "minor": 2501,
+    "before_commit": [],
+    "readback": [
+      "25.01|2501"
+    ]
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001499
+  },
+  {
+    "session": "new",
+    "sql": "UPDATE orders SET amount_rub=13,amount_minor=1300 WHERE order_id=3;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00194
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=3;",
+    "output": [
+      "12.34|"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00188
+  },
+  {
+    "session": "new",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001962
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=3;",
+    "output": [
+      "13.00|1300"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001725
+  },
+  {
+    "event": "ack_new_atomic",
+    "id": 3,
+    "minor": 1300,
+    "before_commit": [
+      "12.34|"
+    ],
+    "readback": [
+      "13.00|1300"
+    ]
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id FROM orders ORDER BY order_id;",
+    "output": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001376
+  },
+  {
+    "event": "naive_population_incomplete",
+    "naive": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "missing_from_naive": [
+      5,
+      6
+    ],
+    "old_insert": 5
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001493
+  },
+  {
+    "event": "interrupted",
+    "rows": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "next_stage_started": false
+  },
+  {
+    "session": "backfill",
+    "sql": "ROLLBACK;",
+    "output": [
+      "WARNING:  there is no transaction in progress"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001503
+  },
+  {
+    "session": "backfill",
+    "sql": "SET application_name='se01-backfill'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.165099
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002061
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (1,2);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002814
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001751
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001773
+  },
+  {
+    "event": "resumed_and_repeated",
+    "rows": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ]
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (3,4);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002598
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (5,6);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002215
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|999999999999",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002073
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|999999999999",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001724
+  },
+  {
+    "event": "full_oracle",
+    "rows": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|999999999999",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "missing": 0,
+    "extra": 0,
+    "null": 0,
+    "mismatch": 0
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001935
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders VALIDATE CONSTRAINT pair_ok;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001885
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "ShareUpdateExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001997
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders VALIDATE CONSTRAINT pair_ok;",
+    "modes": [
+      "ShareUpdateExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001392
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|120.00",
+      "3|13.00",
+      "4|9999999999.99",
+      "5|7.89",
+      "6|25.01"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001909
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00142
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002237
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002048
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001712
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001395
+  },
+  {
+    "session": "new",
+    "sql": "SELECT order_id,COALESCE(amount_minor,(amount_rub*100)::bigint),amount_minor IS NULL OR amount_minor=amount_rub*100 FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0|t",
+      "2|12000|t",
+      "3|1300|t",
+      "4|999999999999|t",
+      "5|789|t",
+      "6|2501|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001963
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001472
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001512
+  },
+  {
+    "session": "new",
+    "sql": "UPDATE orders SET amount_rub=2,amount_minor=200 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00214
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00|200"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002082
+  },
+  {
+    "session": "new",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00145
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 3
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002056
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders ADD CONSTRAINT minor_present CHECK(amount_minor IS NOT NULL) NOT VALID;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001863
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "AccessExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002138
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders ADD CONSTRAINT minor_present CHECK(amount_minor IS NOT NULL) NOT VALID;",
+    "modes": [
+      "AccessExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001444
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001604
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders VALIDATE CONSTRAINT minor_present;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001953
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "ShareUpdateExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.003064
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders VALIDATE CONSTRAINT minor_present;",
+    "modes": [
+      "ShareUpdateExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001866
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001591
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders ALTER COLUMN amount_minor SET NOT NULL;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002078
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "AccessExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002414
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders ALTER COLUMN amount_minor SET NOT NULL;",
+    "modes": [
+      "AccessExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001438
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|120.00",
+      "3|13.00",
+      "4|9999999999.99",
+      "5|7.89",
+      "6|25.01"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002353
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00166
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001633
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001406
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001521
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001556
+  },
+  {
+    "session": "new",
+    "sql": "SELECT order_id,COALESCE(amount_minor,(amount_rub*100)::bigint),amount_minor IS NULL OR amount_minor=amount_rub*100 FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0|t",
+      "2|12000|t",
+      "3|1300|t",
+      "4|999999999999|t",
+      "5|789|t",
+      "6|2501|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002427
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001359
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001723
+  },
+  {
+    "session": "new",
+    "sql": "UPDATE orders SET amount_rub=2,amount_minor=200 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001748
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00|200"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002076
+  },
+  {
+    "session": "new",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001654
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 4
+  },
+  {
+    "session": "ddl",
+    "sql": "SELECT conname,convalidated FROM pg_constraint WHERE conrelid='orders'::regclass ORDER BY conname;",
+    "output": [
+      "minor_present|t",
+      "orders_amount_minor_not_null|t",
+      "orders_amount_rub_check|t",
+      "orders_amount_rub_not_null|t",
+      "orders_order_id_not_null|t",
+      "orders_pkey|t",
+      "pair_ok|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002235
+  },
+  {
+    "event": "constraints",
+    "rows": [
+      "minor_present|t",
+      "orders_amount_minor_not_null|t",
+      "orders_amount_rub_check|t",
+      "orders_amount_rub_not_null|t",
+      "orders_order_id_not_null|t",
+      "orders_pkey|t",
+      "pair_ok|t"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "UPDATE orders SET amount_minor=1 WHERE order_id=2;",
+    "output": [
+      "ERROR:  new row for relation \"orders\" violates check constraint \"pair_ok\"",
+      "DETAIL:  Failing row contains (2, 120.00, 1)."
+    ],
+    "sqlstate": "23514",
+    "seconds": 0.001771
+  },
+  {
+    "session": "ddl",
+    "sql": "UPDATE orders SET amount_minor=NULL WHERE order_id=2;",
+    "output": [],
+    "sqlstate": "23502",
+    "seconds": 0.001575
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=-0.01 WHERE order_id=2;",
+    "output": [
+      "ERROR:  new row for relation \"orders\" violates check constraint \"orders_amount_rub_check\"",
+      "DETAIL:  Failing row contains (order_id, amount_rub) = (2, -0.01)."
+    ],
+    "sqlstate": "23514",
+    "seconds": 0.002112
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=10000000000.00 WHERE order_id=2;",
+    "output": [
+      "ERROR:  numeric field overflow",
+      "DETAIL:  A field with precision 12, scale 2 must round to an absolute value less than 10^10."
+    ],
+    "sqlstate": "22003",
+    "seconds": 0.001596
+  },
+  {
+    "event": "input_rejected_before_sql",
+    "input": "-0.01",
+    "reason": "external exact-decimal W-old contract"
+  },
+  {
+    "event": "input_rejected_before_sql",
+    "input": "1.001",
+    "reason": "external exact-decimal W-old contract"
+  },
+  {
+    "event": "input_rejected_before_sql",
+    "input": "10000000000.00",
+    "reason": "external exact-decimal W-old contract"
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00141
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=1.001 WHERE order_id=2;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001756
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=2;",
+    "output": [
+      "1.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00145
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001572
+  },
+  {
+    "event": "precision_limit",
+    "raw_type_rounds": true,
+    "raw_probe_rolled_back": true
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (1,2);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002417
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (3,4);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001633
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (5,6);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001377
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|999999999999",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001897
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|999999999999",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00155
+  },
+  {
+    "event": "final",
+    "rows": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|999999999999",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ]
+  },
+  {
+    "event": "profile_end",
+    "profile": "Control",
+    "repeat": 1,
+    "seconds": 0.45072
+  },
+  {
+    "event": "profile_begin",
+    "profile": "Control",
+    "repeat": 2
+  },
+  {
+    "session": "ddl",
+    "sql": "DROP TABLE IF EXISTS orders;",
+    "output": [
+      "ERROR:  null value in column \"amount_minor\" of relation \"orders\" violates not-null constraint",
+      "DETAIL:  Failing row contains (2, 120.00, null)."
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.003108
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE TABLE orders(order_id integer PRIMARY KEY,amount_rub numeric(12,2) NOT NULL CHECK(amount_rub BETWEEN 0 AND 9999999999.99));",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.003125
+  },
+  {
+    "session": "ddl",
+    "sql": "GRANT SELECT,INSERT,UPDATE ON orders TO se01_new,se01_backfill;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001582
+  },
+  {
+    "session": "ddl",
+    "sql": "GRANT SELECT(order_id,amount_rub),INSERT(order_id,amount_rub),UPDATE(amount_rub) ON orders TO se01_old;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001729
+  },
+  {
+    "session": "ddl",
+    "sql": "INSERT INTO orders VALUES(1,0),(2,100),(3,12.34),(4,9999999999.99);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001885
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002091
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001768
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002068
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001744
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001554
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001486
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_minor FROM orders;",
+    "output": [
+      "ERROR:  column \"amount_minor\" does not exist",
+      "LINE 1: SELECT amount_minor FROM orders;",
+      "               ^"
+    ],
+    "sqlstate": "42703",
+    "seconds": 0.001606
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [
+      "ERROR:  column \"amount_minor\" of relation \"orders\" does not exist",
+      "LINE 1: INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(...",
+      "                                               ^"
+    ],
+    "sqlstate": "42703",
+    "seconds": 0.001361
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 0
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001362
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders ADD COLUMN amount_minor bigint;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001387
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "AccessExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002189
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders ADD COLUMN amount_minor bigint;",
+    "modes": [
+      "AccessExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001567
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002203
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00143
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001742
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001619
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001664
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001677
+  },
+  {
+    "event": "new_paths_disabled",
+    "stage": 1
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 1
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE OR REPLACE FUNCTION se01_compat() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF current_user='se01_old' THEN NEW.amount_minor:=(NEW.amount_rub*100)::bigint; END IF; RETURN NEW; END $$;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00168
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE TRIGGER compat BEFORE INSERT OR UPDATE OF amount_rub ON orders FOR EACH ROW EXECUTE FUNCTION se01_compat();",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001558
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001908
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001659
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001718
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001543
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001487
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001343
+  },
+  {
+    "session": "new",
+    "sql": "SELECT order_id,COALESCE(amount_minor,(amount_rub*100)::bigint),amount_minor IS NULL OR amount_minor=amount_rub*100 FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0|t",
+      "2|10000|t",
+      "3|1234|t",
+      "4|999999999999|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001761
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001273
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001604
+  },
+  {
+    "session": "new",
+    "sql": "UPDATE orders SET amount_rub=2,amount_minor=200 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001528
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00|200"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002126
+  },
+  {
+    "session": "new",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002707
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 2
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00155
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders ADD CONSTRAINT pair_ok CHECK(amount_minor=amount_rub*100) NOT VALID;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001618
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "AccessExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002033
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders ADD CONSTRAINT pair_ok CHECK(amount_minor=amount_rub*100) NOT VALID;",
+    "modes": [
+      "AccessExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001479
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001644
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001542
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001731
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001711
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001662
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001594
+  },
+  {
+    "session": "new",
+    "sql": "SELECT order_id,COALESCE(amount_minor,(amount_rub*100)::bigint),amount_minor IS NULL OR amount_minor=amount_rub*100 FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0|t",
+      "2|10000|t",
+      "3|1234|t",
+      "4|999999999999|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001663
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001362
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001624
+  },
+  {
+    "session": "new",
+    "sql": "UPDATE orders SET amount_rub=2,amount_minor=200 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001759
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00|200"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001695
+  },
+  {
+    "session": "new",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001317
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 2
+  },
+  {
+    "session": "backfill",
+    "sql": "SELECT order_id FROM orders ORDER BY order_id;",
+    "output": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002255
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (1,2);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002349
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|100.00|10000",
+      "3|12.34|",
+      "4|9999999999.99|"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002185
+  },
+  {
+    "event": "batch_committed",
+    "ids": [
+      1,
+      2
+    ],
+    "rows": [
+      "1|0.00|0",
+      "2|100.00|10000",
+      "3|12.34|",
+      "4|9999999999.99|"
+    ]
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=120 WHERE order_id=2;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002007
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=2;",
+    "output": [
+      "120.00|12000"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00176
+  },
+  {
+    "event": "ack_old",
+    "id": 2,
+    "minor": 12000,
+    "readback": [
+      "120.00|12000"
+    ]
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(5,7.89);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002052
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=5;",
+    "output": [
+      "7.89|789"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001514
+  },
+  {
+    "event": "ack_old",
+    "id": 5,
+    "minor": 789,
+    "readback": [
+      "7.89|789"
+    ]
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001394
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(6,25.01,2501);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001853
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=6;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002237
+  },
+  {
+    "session": "new",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001727
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=6;",
+    "output": [
+      "25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001759
+  },
+  {
+    "event": "ack_new_atomic",
+    "id": 6,
+    "minor": 2501,
+    "before_commit": [],
+    "readback": [
+      "25.01|2501"
+    ]
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001598
+  },
+  {
+    "session": "new",
+    "sql": "UPDATE orders SET amount_rub=13,amount_minor=1300 WHERE order_id=3;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001663
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=3;",
+    "output": [
+      "12.34|"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001434
+  },
+  {
+    "session": "new",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001493
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=3;",
+    "output": [
+      "13.00|1300"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001506
+  },
+  {
+    "event": "ack_new_atomic",
+    "id": 3,
+    "minor": 1300,
+    "before_commit": [
+      "12.34|"
+    ],
+    "readback": [
+      "13.00|1300"
+    ]
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id FROM orders ORDER BY order_id;",
+    "output": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001781
+  },
+  {
+    "event": "naive_population_incomplete",
+    "naive": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "missing_from_naive": [
+      5,
+      6
+    ],
+    "old_insert": 5
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001518
+  },
+  {
+    "event": "interrupted",
+    "rows": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "next_stage_started": false
+  },
+  {
+    "session": "backfill",
+    "sql": "ROLLBACK;",
+    "output": [
+      "WARNING:  there is no transaction in progress"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001718
+  },
+  {
+    "session": "backfill",
+    "sql": "SET application_name='se01-backfill'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.146958
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001736
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (1,2);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002506
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001729
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001672
+  },
+  {
+    "event": "resumed_and_repeated",
+    "rows": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ]
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (3,4);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001686
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (5,6);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001559
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|999999999999",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001649
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|999999999999",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002083
+  },
+  {
+    "event": "full_oracle",
+    "rows": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|999999999999",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "missing": 0,
+    "extra": 0,
+    "null": 0,
+    "mismatch": 0
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001424
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders VALIDATE CONSTRAINT pair_ok;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001623
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "ShareUpdateExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002222
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders VALIDATE CONSTRAINT pair_ok;",
+    "modes": [
+      "ShareUpdateExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001486
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|120.00",
+      "3|13.00",
+      "4|9999999999.99",
+      "5|7.89",
+      "6|25.01"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001711
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001283
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001446
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001509
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00136
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00146
+  },
+  {
+    "session": "new",
+    "sql": "SELECT order_id,COALESCE(amount_minor,(amount_rub*100)::bigint),amount_minor IS NULL OR amount_minor=amount_rub*100 FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0|t",
+      "2|12000|t",
+      "3|1300|t",
+      "4|999999999999|t",
+      "5|789|t",
+      "6|2501|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001722
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001477
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002666
+  },
+  {
+    "session": "new",
+    "sql": "UPDATE orders SET amount_rub=2,amount_minor=200 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001944
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00|200"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001759
+  },
+  {
+    "session": "new",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001141
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 3
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001252
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders ADD CONSTRAINT minor_present CHECK(amount_minor IS NOT NULL) NOT VALID;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001679
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "AccessExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002684
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders ADD CONSTRAINT minor_present CHECK(amount_minor IS NOT NULL) NOT VALID;",
+    "modes": [
+      "AccessExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001554
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001196
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders VALIDATE CONSTRAINT minor_present;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001585
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "ShareUpdateExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002527
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders VALIDATE CONSTRAINT minor_present;",
+    "modes": [
+      "ShareUpdateExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.0018
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001356
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders ALTER COLUMN amount_minor SET NOT NULL;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001638
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "AccessExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002047
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders ALTER COLUMN amount_minor SET NOT NULL;",
+    "modes": [
+      "AccessExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001843
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|120.00",
+      "3|13.00",
+      "4|9999999999.99",
+      "5|7.89",
+      "6|25.01"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002334
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002016
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00253
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00183
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001594
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001945
+  },
+  {
+    "session": "new",
+    "sql": "SELECT order_id,COALESCE(amount_minor,(amount_rub*100)::bigint),amount_minor IS NULL OR amount_minor=amount_rub*100 FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0|t",
+      "2|12000|t",
+      "3|1300|t",
+      "4|999999999999|t",
+      "5|789|t",
+      "6|2501|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001723
+  },
+  {
+    "session": "new",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00172
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001956
+  },
+  {
+    "session": "new",
+    "sql": "UPDATE orders SET amount_rub=2,amount_minor=200 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002133
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_rub,amount_minor FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00|200"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001729
+  },
+  {
+    "session": "new",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00142
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 4
+  },
+  {
+    "session": "ddl",
+    "sql": "SELECT conname,convalidated FROM pg_constraint WHERE conrelid='orders'::regclass ORDER BY conname;",
+    "output": [
+      "minor_present|t",
+      "orders_amount_minor_not_null|t",
+      "orders_amount_rub_check|t",
+      "orders_amount_rub_not_null|t",
+      "orders_order_id_not_null|t",
+      "orders_pkey|t",
+      "pair_ok|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001715
+  },
+  {
+    "event": "constraints",
+    "rows": [
+      "minor_present|t",
+      "orders_amount_minor_not_null|t",
+      "orders_amount_rub_check|t",
+      "orders_amount_rub_not_null|t",
+      "orders_order_id_not_null|t",
+      "orders_pkey|t",
+      "pair_ok|t"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "UPDATE orders SET amount_minor=1 WHERE order_id=2;",
+    "output": [
+      "ERROR:  new row for relation \"orders\" violates check constraint \"pair_ok\"",
+      "DETAIL:  Failing row contains (2, 120.00, 1)."
+    ],
+    "sqlstate": "23514",
+    "seconds": 0.001639
+  },
+  {
+    "session": "ddl",
+    "sql": "UPDATE orders SET amount_minor=NULL WHERE order_id=2;",
+    "output": [],
+    "sqlstate": "23502",
+    "seconds": 0.001332
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=-0.01 WHERE order_id=2;",
+    "output": [],
+    "sqlstate": "23514",
+    "seconds": 0.001732
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=10000000000.00 WHERE order_id=2;",
+    "output": [
+      "ERROR:  new row for relation \"orders\" violates check constraint \"orders_amount_rub_check\"",
+      "DETAIL:  Failing row contains (order_id, amount_rub) = (2, -0.01).",
+      "ERROR:  numeric field overflow",
+      "DETAIL:  A field with precision 12, scale 2 must round to an absolute value less than 10^10."
+    ],
+    "sqlstate": "22003",
+    "seconds": 0.001862
+  },
+  {
+    "event": "input_rejected_before_sql",
+    "input": "-0.01",
+    "reason": "external exact-decimal W-old contract"
+  },
+  {
+    "event": "input_rejected_before_sql",
+    "input": "1.001",
+    "reason": "external exact-decimal W-old contract"
+  },
+  {
+    "event": "input_rejected_before_sql",
+    "input": "10000000000.00",
+    "reason": "external exact-decimal W-old contract"
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001612
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=1.001 WHERE order_id=2;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002068
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=2;",
+    "output": [
+      "1.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001762
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001337
+  },
+  {
+    "event": "precision_limit",
+    "raw_type_rounds": true,
+    "raw_probe_rolled_back": true
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (1,2);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00232
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (3,4);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001733
+  },
+  {
+    "session": "backfill",
+    "sql": "UPDATE orders SET amount_minor=(amount_rub*100)::bigint WHERE amount_minor IS NULL AND order_id IN (5,6);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001398
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|999999999999",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001709
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT order_id,amount_rub,amount_minor FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|999999999999",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00148
+  },
+  {
+    "event": "final",
+    "rows": [
+      "1|0.00|0",
+      "2|120.00|12000",
+      "3|13.00|1300",
+      "4|9999999999.99|999999999999",
+      "5|7.89|789",
+      "6|25.01|2501"
+    ]
+  },
+  {
+    "event": "profile_end",
+    "profile": "Control",
+    "repeat": 2,
+    "seconds": 0.427935
+  },
+  {
+    "event": "profile_begin",
+    "profile": "Defect",
+    "repeat": 1
+  },
+  {
+    "session": "ddl",
+    "sql": "DROP TABLE IF EXISTS orders;",
+    "output": [
+      "ERROR:  null value in column \"amount_minor\" of relation \"orders\" violates not-null constraint",
+      "DETAIL:  Failing row contains (2, 120.00, null)."
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002641
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE TABLE orders(order_id integer PRIMARY KEY,amount_rub numeric(12,2) NOT NULL CHECK(amount_rub BETWEEN 0 AND 9999999999.99));",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.003477
+  },
+  {
+    "session": "ddl",
+    "sql": "GRANT SELECT,INSERT,UPDATE ON orders TO se01_new,se01_backfill;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001486
+  },
+  {
+    "session": "ddl",
+    "sql": "GRANT SELECT(order_id,amount_rub),INSERT(order_id,amount_rub),UPDATE(amount_rub) ON orders TO se01_old;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00139
+  },
+  {
+    "session": "ddl",
+    "sql": "INSERT INTO orders VALUES(1,0),(2,100),(3,12.34),(4,9999999999.99);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002321
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002545
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001624
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001841
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002501
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002216
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001729
+  },
+  {
+    "session": "new",
+    "sql": "SELECT amount_minor FROM orders;",
+    "output": [
+      "ERROR:  column \"amount_minor\" does not exist",
+      "LINE 1: SELECT amount_minor FROM orders;",
+      "               ^"
+    ],
+    "sqlstate": "42703",
+    "seconds": 0.002121
+  },
+  {
+    "session": "new",
+    "sql": "INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(90,1,100);",
+    "output": [],
+    "sqlstate": "42703",
+    "seconds": 0.001382
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 0
+  },
+  {
+    "session": "ddl",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00133
+  },
+  {
+    "session": "ddl",
+    "sql": "ALTER TABLE orders ADD COLUMN amount_minor bigint;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001486
+  },
+  {
+    "session": "observer",
+    "sql": "SELECT mode FROM pg_locks WHERE pid=(SELECT pid FROM pg_stat_activity WHERE application_name='se01-ddl') AND relation='orders'::regclass AND granted ORDER BY mode;",
+    "output": [
+      "AccessExclusiveLock"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00218
+  },
+  {
+    "event": "ddl_lock",
+    "sql": "ALTER TABLE orders ADD COLUMN amount_minor bigint;",
+    "modes": [
+      "AccessExclusiveLock"
+    ]
+  },
+  {
+    "session": "ddl",
+    "sql": "COMMIT;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001856
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00237
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001747
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001665
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001864
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00158
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00135
+  },
+  {
+    "event": "new_paths_disabled",
+    "stage": 1
+  },
+  {
+    "event": "matrix_pass",
+    "stage": 1
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE OR REPLACE FUNCTION se01_compat() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF current_user='se01_old' THEN NEW.amount_minor:=(NEW.amount_rub*100)::bigint; END IF; RETURN NEW; END $$;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001688
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE TRIGGER compat BEFORE INSERT OR UPDATE OF amount_rub ON orders FOR EACH ROW EXECUTE FUNCTION se01_compat();",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001508
+  },
+  {
+    "session": "old",
+    "sql": "SELECT order_id,amount_rub FROM orders ORDER BY order_id;",
+    "output": [
+      "1|0.00",
+      "2|100.00",
+      "3|12.34",
+      "4|9999999999.99"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002
+  },
+  {
+    "session": "old",
+    "sql": "BEGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001421
+  },
+  {
+    "session": "old",
+    "sql": "INSERT INTO orders(order_id,amount_rub) VALUES(90,1.00);",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002004
+  },
+  {
+    "session": "old",
+    "sql": "UPDATE orders SET amount_rub=2.00 WHERE order_id=90;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.00237
+  },
+  {
+    "session": "old",
+    "sql": "SELECT amount_rub FROM orders WHERE order_id=90;",
+    "output": [
+      "2.00"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001767
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001298
+  },
+  {
+    "session": "new",
+    "sql": "SELECT order_id,COALESCE(amount_minor,(amount_rub*100)::bigint),amount_minor IS NULL OR amount_minor=amount_rub*100 FROM orders ORDER BY order_id;",
+    "output": [
+      "ERROR:  column \"amount_minor\" of relation \"orders\" does not exist",
+      "LINE 1: INSERT INTO orders(order_id,amount_rub,amount_minor) VALUES(...",
+      "                                               ^",
+      "1|0|t",
+      "2|10000|t",
+      "3|1234|t",
+      "4|999999999999|t"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001878
+  },
+  {
+    "session": "ddl",
+    "sql": "ROLLBACK;",
+    "output": [
+      "WARNING:  there is no transaction in progress"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.001473
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [
+      "WARNING:  there is no transaction in progress"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002243
+  },
+  {
+    "session": "new",
+    "sql": "ROLLBACK;",
+    "output": [
+      "WARNING:  there is no transaction in progress"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002409
+  },
+  {
+    "session": "observer",
+    "sql": "ROLLBACK;",
+    "output": [
+      "WARNING:  there is no transaction in progress"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00233
+  },
+  {
+    "session": "lockwriter",
+    "sql": "ROLLBACK;",
+    "output": [
+      "WARNING:  there is no transaction in progress"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002023
+  },
+  {
+    "session": "backfill",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002181
+  }
+]

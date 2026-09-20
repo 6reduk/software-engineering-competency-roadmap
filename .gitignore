@@ -1,0 +1,44 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Python/tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# JavaScript dependencies and generated output
+node_modules/
+dist/
+build/
+
+# Editors and local agent settings
+/.idea/
+/.vscode/
+/.obsidian/
+/.claude/
+/.codex/
+/.agents/
+*.swp
+*.swo
+*~
+
+# OS and temporary files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+*.temp
+*.bak
+*.log

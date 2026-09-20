@@ -1,0 +1,141 @@
+[
+  {
+    "session": "ddl",
+    "sql": "SET application_name='se01-ddl'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.232717
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE ROLE se01_old LOGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.003807
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE ROLE se01_new LOGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001814
+  },
+  {
+    "session": "ddl",
+    "sql": "CREATE ROLE se01_backfill LOGIN;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001441
+  },
+  {
+    "session": "old",
+    "sql": "SET application_name='se01-old'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.16737
+  },
+  {
+    "session": "new",
+    "sql": "SET application_name='se01-new'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.174522
+  },
+  {
+    "session": "backfill",
+    "sql": "SET application_name='se01-backfill'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.200838
+  },
+  {
+    "session": "observer",
+    "sql": "SET application_name='se01-observer'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.158284
+  },
+  {
+    "session": "lockwriter",
+    "sql": "SET application_name='se01-lockwriter'; SET default_transaction_isolation='read committed'; SET statement_timeout='2s'; SET lock_timeout='1500ms';",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.152902
+  },
+  {
+    "session": "ddl",
+    "sql": "SELECT version();",
+    "output": [
+      "PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002938
+  },
+  {
+    "event": "environment",
+    "server": [
+      "PostgreSQL 18.6 (Debian 18.6-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit"
+    ],
+    "client": "psql (PostgreSQL) 18.6 (Debian 18.6-1.pgdg13+2)",
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]"
+  },
+  {
+    "session": "ddl",
+    "sql": "SELECT current_user,pg_backend_pid(),current_setting('transaction_isolation'),current_setting('statement_timeout'),current_setting('lock_timeout');",
+    "output": [
+      "postgres|108|read committed|2s|1500ms"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00304
+  },
+  {
+    "session": "ddl",
+    "sql": "ROLLBACK;",
+    "output": [
+      "WARNING:  there is no transaction in progress"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.00183
+  },
+  {
+    "session": "old",
+    "sql": "ROLLBACK;",
+    "output": [
+      "WARNING:  there is no transaction in progress"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002037
+  },
+  {
+    "session": "new",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.001832
+  },
+  {
+    "session": "backfill",
+    "sql": "ROLLBACK;",
+    "output": [],
+    "sqlstate": "00000",
+    "seconds": 0.002065
+  },
+  {
+    "session": "observer",
+    "sql": "ROLLBACK;",
+    "output": [
+      "WARNING:  there is no transaction in progress"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002094
+  },
+  {
+    "session": "lockwriter",
+    "sql": "ROLLBACK;",
+    "output": [
+      "WARNING:  there is no transaction in progress"
+    ],
+    "sqlstate": "00000",
+    "seconds": 0.002008
+  }
+]

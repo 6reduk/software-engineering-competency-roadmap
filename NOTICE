@@ -1,0 +1,42 @@
+Engineering Leadership & Architecture
+Copyright (c) 2026 Shestakov Dmitriy <6reduk@gmail.com>
+
+Licensing notice
+================
+
+This repository is dual-licensed by file purpose:
+
+- Content and documentation are licensed under Creative Commons Attribution
+  4.0 International (CC BY 4.0), unless explicitly stated otherwise.
+- Files under tools/ and standalone executable source-code files, including
+  preserved Gate 0 probes, are licensed under the MIT License unless explicitly
+  stated otherwise.
+- Code fragments embedded in documentation follow the document's CC BY 4.0
+  license unless an explicit software-license notice says otherwise.
+- Explicit per-file notices and identified third-party licenses take
+  precedence over this repository-level notice.
+
+The complete routing terms and the MIT license text are in LICENSE.
+The canonical CC BY 4.0 legal code is available at:
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+Attribution
+===========
+
+A reasonable attribution for reused content is:
+
+  Engineering Leadership & Architecture
+  Shestakov Dmitriy <6reduk@gmail.com>
+  Licensed under CC BY 4.0
+  Include the source repository URL and indicate changes when applicable.
+
+Scope and warranties
+====================
+
+The repository provides a curriculum architecture, educational materials,
+assignments, authoring governance and supporting tools. It does not certify a
+learner's proficiency, assign an employment grade or warrant that a learner's
+implementation is correct or production-ready.
+
+The licensed material and software are provided as-is, without warranties, to
+the extent permitted by the applicable license and law.

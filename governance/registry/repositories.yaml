@@ -1,0 +1,53 @@
+schema_version: 1
+updated: 2026-08-15
+policy: every_track_has_a_registry_entry_before_repository_creation
+repositories:
+  - id: ela
+    kind: blueprint
+    status: local
+    path: engineering-leadership-architecture-blueprint
+  - id: a1
+    kind: track
+    status: planned
+  - id: a2
+    kind: track
+    status: planned
+  - id: a3
+    kind: track
+    status: planned
+  - id: b1
+    kind: track
+    status: planned
+  - id: b2
+    kind: track
+    status: planned
+  - id: b3
+    kind: track
+    status: planned
+  - id: b4
+    kind: track
+    status: planned
+  - id: b5
+    kind: track
+    status: planned
+  - id: b6
+    kind: track
+    status: planned
+  - id: b7
+    kind: track
+    status: planned
+  - id: b8
+    kind: track
+    status: planned
+  - id: b9
+    kind: track
+    status: planned
+  - id: b10
+    kind: track
+    status: planned
+  - id: b11
+    kind: track
+    status: planned
+  - id: c1
+    kind: track
+    status: planned

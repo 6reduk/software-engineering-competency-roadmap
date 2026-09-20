@@ -1,0 +1,122 @@
+schema_version: 1
+state_id: program.state.current
+updated: 2026-09-20
+status: accepted
+owner: orchestrator
+
+repository:
+  default_branch: main
+  manifest_origin:
+    stage: P3
+    decision: D-082
+    public_commit_claim: none-pre-snapshot-history-is-local
+  public_history_policy: sanitized-snapshot
+  governance_archive_policy: included-historical-non-normative
+  remote_url: null
+  public_snapshot_tag: null
+  layout: governance/planning/repository-structure.md
+
+lifecycle:
+  program_mode: publication-preparation
+  authoring_phase: closed
+  learner_execution:
+    status: out-of-scope
+    owner: learner
+  proficiency_confirmation:
+    status: out-of-scope
+    owner: learner
+  last_accepted_gate:
+    id: G35
+    package: M3.1
+    decision: D-079
+    acceptance: governance/reviews/M3.1-G35-program-authoring-closeout-acceptance.md
+    closeout: governance/state/PROGRAM-AUTHORING-CLOSEOUT.md
+
+publication:
+  plan: governance/planning/publication-and-continuity-todo.md
+  completed_stages:
+    - P0
+    - P1
+    - P2
+    - P3
+    - P4
+    - P5
+    - P6
+  last_completed_stage: P6
+  next_action:
+    id: P7
+    title: "Создать GitHub-репозиторий и опубликовать snapshot"
+    owner: repository-owner-and-orchestrator
+    scope: external-publication
+    source: governance/planning/publication-and-continuity-todo.md
+    exit: "Canonical GitHub URL, default branch and immutable public tag resolve to the verified snapshot."
+
+module_state:
+  source: governance/state/MODULE-STATE.md
+  defined_modules: 27
+  counts:
+    closed-for-authoring: 10
+    partial: 3
+    blueprint-only: 14
+    not-started: 0
+  track_skeleton_only: 12
+
+deep_verticals:
+  - id: B2
+    state: authoring-pass-closed
+    modules: 10
+    source: curriculum/tracks/b2/consolidation/README.md
+    closeout_acceptance: governance/reviews/M1.8.21-G20-post-s01-consolidation-acceptance.md
+  - id: B3
+    state: authoring-pass-closed
+    modules: 11
+    source: curriculum/tracks/b3/phase-closeout.md
+    closeout_acceptance: governance/reviews/M1.9.6-G27-b3-phase-closeout-acceptance.md
+  - id: B5
+    state: authoring-pass-closed
+    modules: 6
+    source: curriculum/tracks/b5/phase-closeout.md
+    closeout_acceptance: governance/reviews/M2.5-G33-b5-phase-closeout-acceptance.md
+
+debt:
+  - id: debt.partial-modules
+    owner: orchestrator
+    disposition: return-on-observable-trigger
+    trigger: "A concrete task exposes the missing L1-L3 result or requires the recorded stronger boundary."
+    source: governance/state/MODULE-STATE.md
+  - id: debt.blueprint-only-modules
+    owner: orchestrator
+    disposition: keep-as-blueprint
+    trigger: "A role-relevant task, a distinguishable learning result and an available evidence environment are all identified."
+    source: governance/state/MODULE-STATE.md
+  - id: debt.l4-l5-adoption
+    owner: orchestrator-and-real-system-owners
+    disposition: requires-real-adoption
+    trigger: "A real multi-team adoption or migration has named owners and observable consequences over time."
+    source: governance/state/MODULE-STATE.md
+  - id: debt.implementation-references
+    owner: learner-and-independent-reviewer
+    disposition: outside-program-authoring
+    trigger: "A learner submits reproducible implementation evidence and an independent reviewer is assigned."
+    source: governance/state/PROGRAM-AUTHORING-CLOSEOUT.md
+  - id: debt.track-skeletons
+    owner: orchestrator
+    disposition: no-automatic-queue
+    trigger: "The M3.0 return conditions are met for a concrete task and a separate bounded phase is accepted."
+    source: governance/planning/intakes/program-depth-checkpoint.md
+  - id: debt.publication-decisions
+    owner: repository-owner
+    disposition: decide-before-external-write
+    trigger: "P7 requires GitHub owner, repository name and visibility; licensing and history policy were resolved by D-084/D-085."
+    source: governance/planning/publication-and-continuity-todo.md
+
+traceability:
+  decisions: governance/decisions.md
+  program_status: governance/state/STATUS.md
+  open_questions: governance/state/OPEN-QUESTIONS.md
+  module_state: governance/state/MODULE-STATE.md
+  publication_plan: governance/planning/publication-and-continuity-todo.md
+  publication_validation: governance/reviews/P6-pre-publication-validation.md
+  load_state_instruction: governance/state/LOAD-STATE.md
+  validator: tools/validate_state.py
+  authoring_toolkit: authoring/README.md
