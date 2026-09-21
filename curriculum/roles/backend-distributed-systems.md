@@ -2,28 +2,28 @@
 artifact: role-view
 role: backend-distributed-systems
 status: drafting
-updated: 2026-08-15
+updated: 2026-09-21
 language: ru
 ---
 
-# Backend / Distributed Systems
+# Подборка: разработка backend- и распределённых систем
 
-## Ответственность роли
+## Для каких задач
 
 Проектирование, реализация и эксплуатация backend-систем: API, данные, интеграции, распределённые взаимодействия, производительность, надёжность и эволюция сервисов.
 
-## Роли вертикалей
+## Требования по предметным направлениям
 
-| Track | Роль | Целевой уровень | Обоснование |
+| Направление | Значение в подборке | Целевой уровень | Обоснование |
 |---|---|---:|---|
 | A1 CS & Problem Solving | core | L3 | Complexity, concurrency, memory и problem solving нужны для диагностики и design. |
 | A2 Software Engineering Practice | core | L4 | Качество, delivery и стандарты распространяются на команду/несколько команд. |
 | A3 Networks, Linux & Security Foundations | core | L3 | Backend-инженер обязан диагностировать путь запроса и базовые security failures. |
 | B1 Python Engineering | core | L3 | Production-владение языком; L4 требуется при установлении Python-стандартов. |
-| B2 Backend & API Engineering | depth | L4 | Основная прикладная вертикаль роли. |
+| B2 Backend & API Engineering | depth | L4 | Основное прикладное направление специализации. |
 | B3 Transactional & Operational Data Systems | depth | L4 | Данные, транзакции, store selection, производительность и эволюция схем критичны. |
 | B4 Data Engineering & Analytical Platforms | awareness | L2 | Нужно понимать контракты, pipelines и границы OLTP/OLAP. |
-| B5 Distributed Systems & System Design | depth | L4 | Основная системная вертикаль роли. |
+| B5 Distributed Systems & System Design | depth | L4 | Основное системное направление специализации. |
 | B6 Platform, Cloud & Infrastructure Engineering | core | L3 | Нужна самостоятельная эксплуатация и конструктивная работа с platform team. |
 | B7 Reliability, Observability & Production Engineering | depth | L4 | Mission-critical backend без operational ownership невозможен. |
 | B8 Classical ML & Data Science | awareness | L1 | Понимание интеграции и языка взаимодействия. |

@@ -2,32 +2,32 @@
 artifact: role-view
 role: architecture-technical-leadership
 status: drafting
-updated: 2026-08-15
+updated: 2026-09-21
 language: ru
 ---
 
-# Architecture / Technical Leadership
+# Подборка: архитектурные задачи и техническое лидерство
 
-## Ответственность роли
+## Для каких обязанностей
 
 Формирование технического направления, согласование решений между командами и снижение организационных/системных рисков. Роль не равна «самый сильный разработчик» и не предполагает одинаковой экспертности во всех технологиях.
 
-## Роли вертикалей
+## Требования по предметным направлениям
 
 Для этой роли используются два измерения:
 
-- собственная техническая специализация — 2–4 `depth`-вертикали;
+- собственная техническая специализация — 2–4 направления с меткой `depth`;
 - способность принимать межсистемные решения — обязательный `core/awareness` по остальным.
 
 Ниже приведена проекция для архитектора/tech lead с базовой специализацией Backend / Distributed Systems.
 
-| Track | Роль | Целевой уровень | Обоснование |
+| Направление | Значение в подборке | Целевой уровень | Обоснование |
 |---|---|---:|---|
 | A1 CS & Problem Solving | core | L3 | Достаточно для корректного reasoning и оценки ограничений. |
 | A2 Software Engineering Practice | core | L5 | Стандарты, governance, delivery и эволюция engineering system. |
 | A3 Networks, Linux & Security Foundations | core | L3–L4 | Общий baseline L3; threat modeling, IAM/trust boundaries и supply-chain consequences — L4. |
 | B1 Python Engineering | core | L3 | Глубина основного стека без требования быть language implementer. |
-| B2 Backend & API Engineering | depth | L4 | Базовая специализация данного role view. |
+| B2 Backend & API Engineering | depth | L4 | Базовая специализация данной подборки. |
 | B3 Transactional & Operational Data Systems | depth | L4 | Data ownership, store selection и consistency — архитектурный фундамент. |
 | B4 Data Engineering & Analytical Platforms | awareness | L3 | Нужно проектировать границы operational/analytical data flows. |
 | B5 Distributed Systems & System Design | depth | L5 | Решения организационного масштаба и эволюция систем. |
@@ -37,7 +37,7 @@ language: ru
 | B9 Deep Learning & Foundation Models | awareness | L2 | Достаточно для проверки feasibility и коммуникации со специалистами. |
 | B10 LLM Applications, Retrieval & Agentic Systems | awareness | L2–L3 | Architecture, security, evaluation, cost и vendor/model risks. |
 | B11 MLOps & LLMOps | awareness | L2–L3 | Platform/lifecycle boundaries и build/buy decisions. |
-| C1 Engineering Leadership & Architecture | integrating depth | L5 | Основная интегрирующая вертикаль роли. |
+| C1 Engineering Leadership & Architecture | integrating depth | L5 | Основное интегрирующее направление для этих обязанностей. |
 
 ## Приоритетные outcomes
 

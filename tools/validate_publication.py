@@ -146,7 +146,11 @@ def validate_hygiene(texts: dict[Path, str]) -> int:
 
 def validate_contracts() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    require("два черновых представления" in readme, "RoleView lifecycle disclosure is missing")
+    require(
+        "две черновые подборки навыков" in readme
+        and "Обе подборки имеют статус `drafting`" in readme,
+        "competency-selection lifecycle disclosure is missing",
+    )
     require("governance/README.md" in readme, "governance navigation is missing")
     require("CC BY 4.0" in readme and "MIT" in readme, "README license summary is incomplete")
 

@@ -1,17 +1,19 @@
 ---
 id: ela.index.initial-role-summary
 kind: index
-title: Initial role projection
+title: Initial competency selections
 status: accepted
-updated: 2026-08-14
+updated: 2026-09-21
 language: ru
 ---
 
-# Первые ролевые проекции
+# Сводка готовых подборок навыков
 
-Target level в этой таблице — навигационный summary. Он не наследуется всеми capabilities. После M1.4 authoritative требования будут ссылаться на LevelOutcomes.
+Целевой уровень в таблице — навигационный ориентир. Он не присваивается
+автоматически всем навыкам направления: точные требования задаются для
+конкретных проверяемых результатов.
 
-| Track | Backend / Distributed Systems | Architecture / Technical Leadership |
+| Предметное направление | Backend / Distributed Systems | Architecture / Technical Leadership |
 |---|---|---|
 | A1 | core · L3 | core · L3 |
 | A2 | core · L4 | core · L5 |
@@ -31,9 +33,12 @@ Target level в этой таблице — навигационный summary. 
 
 ## Интерпретация
 
-- `core` — обязательная база роли.
+- `core` — обязательная основа подборки.
 - `depth` — техническая специализация с самостоятельным ownership.
 - `awareness` — достаточная модель для интеграции и взаимодействия со специалистами.
-- `integrating depth` — способность связывать технические вертикали на организационном масштабе.
+- `integrating depth` — способность связывать технические направления на организационном масштабе.
 
-RoleView не создаёт отдельный материал: он ссылается на общую matrix. Label задаёт breadth/ownership, а target summary — глубину только релевантных integration capabilities, не всего трека.
+Подборка не создаёт отдельные учебные материалы: она ссылается на общую
+матрицу компетенций. Метка описывает значение направления для выбранного набора
+задач, а целевой уровень относится только к релевантным навыкам, не ко всему
+направлению целиком.

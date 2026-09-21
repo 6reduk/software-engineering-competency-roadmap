@@ -181,8 +181,11 @@ def validate_manifest(data: dict[str, Any]) -> None:
         require(next_action["id"] in plan, "next action is missing from publication plan")
 
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
-        require("два черновых представления" in readme,
-                "README must disclose drafting RoleView status")
+        require(
+            "две черновые подборки навыков" in readme
+            and "Обе подборки имеют статус `drafting`" in readme,
+            "README must disclose drafting competency-selection status",
+        )
         require("governance/README.md" in readme,
                 "README must link the governance normative boundary")
 
